@@ -72,7 +72,7 @@ int main()
     cout << "\nСгенерированная популяция:\n";
     for (size_t i = 0; i < Population.size(); ++i)
     {
-        cout << "Номер попупляции: " << i + 1 << setw(6);
+        cout << "Номер популяции: " << i + 1 << setw(6);
         for (size_t j = 0; j < Population[i].size(); ++j)
         {
             cout << j+1 << ") " << Population[i][j] << setw(9);
