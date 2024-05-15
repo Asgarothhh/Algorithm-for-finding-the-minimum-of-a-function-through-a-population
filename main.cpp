@@ -4,7 +4,7 @@
 #include <iomanip>
 using namespace std;
 
-const size_t SIZE = 1000;;
+const size_t SIZE = 1000;
 
 double targetFunction(double x, int b)
 {
