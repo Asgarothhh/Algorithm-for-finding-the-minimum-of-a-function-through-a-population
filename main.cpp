@@ -50,7 +50,7 @@ void movePoints(vector<vector<double>>& population, vector<vector<double>>& func
 
 int main()
 {
-	setlocale(LC_ALL, "Russian");
+    setlocale(LC_ALL, "Russian");
 
     vector<vector<double>> Population(SIZE, vector<double>(3));
     vector<vector<double>> FunctionValues(SIZE, vector<double>(3));
@@ -69,24 +69,26 @@ int main()
         movePoints(Population, FunctionValues, stepSize, decayRate, b);
     }
 
-    cout << "\nСгенерированная популяция:\n";
+    cout << "\nСгенерированные популяции\n";
+    cout << setw (10) << "Популяция №1" << setw(20) << "Популяция №2" << setw(20) << "Популяция №3\n";
     for (size_t i = 0; i < Population.size(); ++i)
     {
-        cout << "Номер популяции: " << i + 1 << setw(6);
+        cout << setw(3);
         for (size_t j = 0; j < Population[i].size(); ++j)
         {
-            cout << j+1 << ") " << Population[i][j] << setw(9);
+            cout << i + 1 << ") " << Population[i][j] << setw(8);
         }
         cout << endl;
     }
 
-    cout << "\nПолученные значения функции:\n";
+    cout << "\nПолученные значения функции\n";
+    cout << setw(10) << "Группа №1" << setw(20) << "Группа №2" << setw(20) << "Группа №3\n";
     for (size_t i = 0; i < FunctionValues.size(); ++i)
     {
-        cout << "Номер группы: " << i + 1 << setw(5);
+        cout << setw(3);
         for (size_t j = 0; j < FunctionValues[i].size(); ++j)
         {
-            cout << j + 1 << ") " << FunctionValues[i][j] << setw(9);
+            cout << i + 1 << ") " << FunctionValues[i][j] << setw(8);
         }
         cout << endl;
     }
@@ -96,14 +98,14 @@ int main()
     for (size_t j = 0; j < 3; ++j)
     {
         double minFunctionValue = FunctionValues[0][j];
-        double bestIndividual=Population[0][j];
-        for (size_t i = 0; i<1000; ++i)
+        double bestIndividual = Population[0][j];
+        for (size_t i = 0; i < 1000; ++i)
         {
-           if (FunctionValues[i][j] < minFunctionValue)
-           {
-               minFunctionValue = FunctionValues[i][j];
-               bestIndividual = Population[i][j];
-           }
+            if (FunctionValues[i][j] < minFunctionValue)
+            {
+                minFunctionValue = FunctionValues[i][j];
+                bestIndividual = Population[i][j];
+            }
         }
         BestFunctionValues[j] = minFunctionValue;
         BestIndividuals[j] = bestIndividual;
@@ -111,14 +113,14 @@ int main()
 
     cout << "\nЛучшие значения функции: \n";
     for (size_t i = 0; i < BestFunctionValues.size(); ++i)
-        cout << i+1 << ") " << BestFunctionValues[i] << endl;
+        cout << i + 1 << ") " << BestFunctionValues[i] << endl;
 
     cout << "\nСоответствующие значениям функции лучшие <особи>: \n";
     for (size_t i = 0; i < BestIndividuals.size(); ++i)
         cout << i + 1 << ") " << BestIndividuals[i] << endl;
-     
+
     double minOfFunction = BestFunctionValues[0];
-    size_t indexOfBestIndividuals=0;
+    size_t indexOfBestIndividuals = 0;
     for (size_t i = 1; i < BestFunctionValues.size(); ++i)
     {
         if (BestFunctionValues[i] < minOfFunction)
